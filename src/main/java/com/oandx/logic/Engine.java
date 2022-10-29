@@ -10,14 +10,18 @@ public class Engine {
         }
     }
 
-    public boolean checkWinO () {
+    public boolean checkWin (char side) {
         int sum = 0;
+        int condition = 0;
+        if (side == 'O') {condition = 3;}   // for O
+        if (side == 'X') {condition = -15;} // for X
+
         //checking columns
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 sum = sum + field[i][j];
             }
-            if (sum == 3) {
+            if (sum == condition) {
                 return true;
             } else {
                 sum = 0;
@@ -28,56 +32,30 @@ public class Engine {
             for (int j = 0; j < 3; j++) {
                 sum = sum + field[j][i];
             }
-            if (sum == 3) {
+            if (sum == condition) {
                 return true;
             } else {
                 sum = 0;
             }
         }
         // checking diagonals
-        if ((field[0][0] + field[1][1] + field [2][2]) == 3) {
+        if ((field[0][0] + field[1][1] + field [2][2]) == condition) {
             return true;
         }
-        if ((field[2][0] + field[1][1] + field [0][2]) == 3) {
+        if ((field[2][0] + field[1][1] + field [0][2]) == condition) {
             return true;
         }
         // return false if none is true
         return false;
     }
 
-    public boolean checkWinX () {
-        int sum = 0;
-        //checking columns
+    public boolean checkTie () {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                sum = sum + field[i][j];
-            }
-            if (sum == -15) {
-                return true;
-            } else {
-                sum = 0;
+                if (field[i][j] == 0) {return false;}
             }
         }
-        // checking rows
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                sum = sum + field[j][i];
-            }
-            if (sum == -15) {
-                return true;
-            } else {
-                sum = 0;
-            }
-        }
-        // checking diagonals
-        if ((field[0][0] + field[1][1] + field [2][2]) == -15) {
-            return true;
-        }
-        if ((field[2][0] + field[1][1] + field [0][2]) == -15) {
-            return true;
-        }
-        // return false if non is true
-        return false;
+        return true;
     }
 
     public boolean setO (int i, int j) {
@@ -99,6 +77,8 @@ public class Engine {
     }
 
     public int[][] getField() {
-        return field;
+        int copyField[][] = new int[3][3];
+        System.arraycopy(field, 0, copyField, 0, field.length);
+        return copyField;
     }
 }

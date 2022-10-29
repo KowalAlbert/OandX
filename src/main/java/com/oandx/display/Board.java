@@ -11,38 +11,37 @@ public class Board {
     private char c2 = ' ';
     private char c3 = ' ';
 
-    public void display() {
+    public void display(int field[][]) {
+        if (field[0][0] == 1) {a1 = 'O';}
+        if (field[0][0] == -5) {a1 = 'X';}
+
+        if (field[0][1] == 1) {a2 = 'O';}
+        if (field[0][1] == -5) {a2 = 'X';}
+
+        if (field[0][2] == 1) {a3 = 'O';}
+        if (field[0][2] == -5) {a3 = 'X';}
+
+        if (field[1][0] == 1) {b1 = 'O';}
+        if (field[1][0] == -5) {b1 = 'X';}
+
+        if (field[1][1] == 1) {b2 = 'O';}
+        if (field[1][1] == -5) {b2 = 'X';}
+
+        if (field[1][2] == 1) {b3 = 'O';}
+        if (field[1][2] == -5) {b3 = 'X';}
+
+        if (field[2][0] == 1) {c1 = 'O';}
+        if (field[2][0] == -5) {c1 = 'X';}
+
+        if (field[2][1] == 1) {c2 = 'O';}
+        if (field[2][1] == -5) {c2 = 'X';}
+
+        if (field[2][2] == 1) {c3 = 'O';}
+        if (field[2][2] == -5) {c3 = 'X';}
+
         System.out.println("    a b c ");
         System.out.println("1  |" + a1 + "|" + b1 + "|" + c1 + "|");
         System.out.println("2  |" + a2 + "|" + b2 + "|" + c2 + "|");
         System.out.println("3  |" + a3 + "|" + b3 + "|" + c3 + "|");
-    }
-
-    public void setA1(char a1) {
-        this.a1 = a1;
-    }
-    public void setA2(char a2) {
-        this.a2 = a2;
-    }
-    public void setA3(char a3) {
-        this.a3 = a3;
-    }
-    public void setB1(char b1) {
-        this.b1 = b1;
-    }
-    public void setB2(char b2) {
-        this.b2 = b2;
-    }
-    public void setB3(char b3) {
-        this.b3 = b3;
-    }
-    public void setC1(char c1) {
-        this.c1 = c1;
-    }
-    public void setC2(char c2) {
-        this.c2 = c2;
-    }
-    public void setC3(char c3) {
-        this.c3 = c3;
     }
 }
